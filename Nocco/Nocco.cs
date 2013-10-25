@@ -189,6 +189,10 @@ namespace Nocco {
 					"min.js"
 				}
 			}},
+            { ".php", new Language {
+                Name = "php",
+                Symbol = "//"
+                }},
 			{ ".cs", new Language {
 				Name = "csharp",
 				Symbol = "///?",
