@@ -101,7 +101,7 @@ namespace Nocco {
 		// Prepares a single chunk of code for HTML output and runs the text of its
 		// corresponding comment through **Markdown**, using a C# implementation
 		// called [MarkdownSharp](http://code.google.com/p/markdownsharp/).
-		private static void Hightlight(List<Section> sections) {
+		private static void Hightlight(IEnumerable<Section> sections) {
 			var markdown = new MarkdownSharp.Markdown();
 
 			foreach (var section in sections) {
@@ -220,7 +220,11 @@ namespace Nocco {
 					{ @"<see\s*cref=""([^""]*)""\s*/>", "see `$1`"},
 					{ @"(</?example>|</?summary>|</?remarks>)", "" },
 				}
-			}}
+			}},
+            { ".sql", new Language {
+                Name = "sql",
+                Symbol = "--"
+            }}
 		};
 
 		// Get the current language we're documenting, based on the extension.
